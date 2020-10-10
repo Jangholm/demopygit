@@ -9,3 +9,6 @@ for i in range(10):
 
 print("Python")
 
+print("error")
+
+

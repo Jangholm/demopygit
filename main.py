@@ -34,3 +34,4 @@ while True:
         break
     else:
         print("bajs")
+        print("FAAAN")

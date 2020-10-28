@@ -32,3 +32,5 @@ while True:
             game.test_reset_map(map_list, player_position_x_axis, player_position_y_axis)
     elif user_answer == "5":
         break
+    else:
+        print("kiss")

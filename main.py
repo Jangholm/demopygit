@@ -1,6 +1,5 @@
 from Game import Game
 import os
-import random
 
 player_position_x_axis = 0
 player_position_y_axis = 0
@@ -21,7 +20,6 @@ while True:
         game.place_player(map_list,player_position_x_axis, player_position_y_axis)
         game.print_out_map(map_list)
         game.test_reset_map(map_list, player_position_x_axis, player_position_y_axis)
-        #game.reset_map(map_list, player_position_x_axis, player_position_y_axis)
         while game_is_on:
             player_position_x_axis, player_position_y_axis = game.ask_to_move_player(player_position_x_axis,
                                                                                      player_position_y_axis,
@@ -32,7 +30,6 @@ while True:
             game.print_out_map(map_list)
             print(player_position_x_axis)
             game.test_reset_map(map_list, player_position_x_axis, player_position_y_axis)
-            #game.reset_map(map_list, player_position_x_axis, player_position_y_axis)
     elif user_answer == "5":
         break
     else:

@@ -117,4 +117,5 @@ class Game:
             _ = system("clear")
 
     def bajs(self):
+        print("sdgssgd")
         pass

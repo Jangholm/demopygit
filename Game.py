@@ -96,10 +96,6 @@ class Game:
             y_axis -= 1
         elif answer == "s":
             y_axis += 1
-       #       if self.check_if_player_is_out_of_map(x_axis, y_axis, map_x_axis, map_y_axis):
-        #        continue
-        #    else:
-       #         valid_answer = True
         return x_axis, y_axis
 
     def reset_map(self, list, x_axis, y_axis):
@@ -119,3 +115,6 @@ class Game:
             _ = system("cls")
         else:
             _ = system("clear")
+
+    def bajs(self):
+        pass

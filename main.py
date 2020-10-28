@@ -35,3 +35,4 @@ while True:
     else:
         print("bajs")
         print("FAAAN")
+        print("kiss")

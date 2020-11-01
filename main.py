@@ -1,6 +1,5 @@
 from Game import Game
 import os
-from Enemy import Enemy, Witch, Dragon
 from Fight import Fight
 from Player import Player
 

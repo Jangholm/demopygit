@@ -50,4 +50,5 @@ while True:
             game.print_out_map(map_list)
             game.reset_map(map_list, player_position_x_axis, player_position_y_axis)
     elif user_answer == "5":
+        print("bajs")
         break

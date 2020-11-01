@@ -52,3 +52,6 @@ while True:
     elif user_answer == "5":
         print("bajs")
         break
+
+    elif user_answer == "6":
+        break

@@ -1,5 +1,8 @@
 from Game import Game
 import os
+from Enemy import Enemy, Witch, Dragon
+from Fight import Fight
+from Player import Player
 
 player_position_x_axis = 0
 player_position_y_axis = 0
@@ -7,7 +10,8 @@ map_x_axis_size = 0
 map_y_axis_size = 0
 map_list = []
 game_is_on = True
-map_elements_list = ["D", "Z", "S", "W", "_", "_", "_", "_", "_", "_", "_"]
+map_elements_list = ["O", "_", "_"]
+fight_is_on = True
 
 while True:
     print("\n_______WELCOME TO DEATH ROW_______\n")
@@ -17,22 +21,33 @@ while True:
         game = Game()
         map_list, map_x_axis_size, map_y_axis_size = game.create_map(map_list, map_x_axis_size, map_y_axis_size,
                                                                      map_elements_list)
-        game.place_player(map_list,player_position_x_axis, player_position_y_axis)
+        player = Player()
+        print(player.health)
+        player.create_player()
+        game.place_player(map_list, player_position_x_axis, player_position_y_axis)
         game.print_out_map(map_list)
-        game.test_reset_map(map_list, player_position_x_axis, player_position_y_axis)
+        game.reset_map(map_list, player_position_x_axis, player_position_y_axis)
         while game_is_on:
             player_position_x_axis, player_position_y_axis = game.ask_to_move_player(player_position_x_axis,
                                                                                      player_position_y_axis,
                                                                                      map_x_axis_size,
                                                                                      map_y_axis_size)
+            if game.check_for_enemy(map_list, player_position_x_axis, player_position_y_axis):
+                fight = Fight()
+                enemy = fight.create_enemies()
+                while fight_is_on:
+                    if fight.action_player(enemy, player):
+                        if fight.check_for_win(enemy):
+                            break
+                        fight.action_enemy(enemy, player)
+                        if fight.check_for_loss(player):
+                            game_is_on = False
+                            break
+                    else:
+                        break
             game.place_player(map_list, player_position_x_axis, player_position_y_axis)
             os.system('cls')
             game.print_out_map(map_list)
-            print(player_position_x_axis)
-            game.test_reset_map(map_list, player_position_x_axis, player_position_y_axis)
+            game.reset_map(map_list, player_position_x_axis, player_position_y_axis)
     elif user_answer == "5":
         break
-    else:
-        print("bajs")
-        print("FAAAN")
-        print("kiss")

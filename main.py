@@ -54,4 +54,5 @@ while True:
         break
 
     elif user_answer == "6":
+        print("VAAFAAN")
         break

@@ -46,6 +46,14 @@ class Game:
             break
         return list
 
+    def check_for_enemy(self, list, player_x_axis, player_y_axis):
+        for y, section in enumerate(list):
+            if y == player_y_axis:
+                for x, item in enumerate(section):
+                    if x == player_x_axis:
+                        if item != "_" and item != "X":
+                            return True
+
     def print_out_map(self, list):
         for y in list:
             print(y)
@@ -76,9 +84,6 @@ class Game:
         else:
             return False
 
-    def reset_axis(self, answer, ):
-        pass
-
     def ask_to_move_player(self, x_axis, y_axis, map_x_axis, map_y_axis):
         valid_answer = False
         answer = ""
@@ -99,12 +104,6 @@ class Game:
         return x_axis, y_axis
 
     def reset_map(self, list, x_axis, y_axis):
-        x_axis -= 1
-        for section in list:
-            for element in range(len(section)):
-                section[x_axis] = "_"
-
-    def test_reset_map(self, list, x_axis, y_axis):
         for section in list:
             for index, item in enumerate(section):
                 if item == "X":
@@ -115,7 +114,3 @@ class Game:
             _ = system("cls")
         else:
             _ = system("clear")
-
-    def bajs(self):
-        print("sdgssgd")
-        pass
